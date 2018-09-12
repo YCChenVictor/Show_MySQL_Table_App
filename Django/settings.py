@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from about_path import parent_path, add_path_to_sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'view_table'
 ]
 
 MIDDLEWARE = [
@@ -70,15 +72,27 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Django.wsgi.application'
 
 
+# obtain conf.py for password
+FILE_PATH = os.path.abspath(__file__)
+PAR_PATH = parent_path(FILE_PATH, 2)
+add_path_to_sys(PAR_PATH)
+from docs import conf
+
+
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': conf.conf['NAME'],
+        'USER': conf.conf['USER'],
+        'PASSWORD': conf.conf['PASSWORD'],
+        'HOST': conf.conf['HOST'],
     }
 }
+
+TIME_ZONE = 'Asia/Taipei'
 
 
 # Password validation
