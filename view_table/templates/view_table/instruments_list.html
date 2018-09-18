@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Stocks List</h1>
+  {% if stock_list %}
+  <ul>
+    {% for stock in book_list %}
+      <li>
+        <a href="{{ Stocks.get_absolute_url }}">{{ S.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no stocks in the Stocks.</p>
+  {% endif %}       
+{% endblock %}
