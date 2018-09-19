@@ -1,23 +1,35 @@
-from django.http import HttpResponse
-from view_table.models import Stocks, Alibaba_Group_Holding_Limited
 from django.shortcuts import render
+from view_table.models import Genre, instrument
 
 
 def index(request):
+
     """View function for home page of site."""
 
+    # numner of the Genre
+    num_Genre = Genre.objects.all().count()
+
     # Generate counts of some of the main objects
-    num_Stocks = Stocks.objects.all().count()
-    num_Alibaba_Group_Holding_Limited = Alibaba_Group_Holding_Limited.objects.all().count()
+    num_Instrument = instrument.objects.all().count()
 
     # Equity Stocks(status = 'e')
-    # num_equities = Stocks.objects.filter(status__exact='e').count()
-
+    # num_equities = Instrument.objects.filter(status__exact='e').count()
     context = {
-        'num_Stocks': num_Stocks,
-        'num_Alibaba_Group_Holding_Limited': num_Alibaba_Group_Holding_Limited,
-        # 'num_equities': num_equities,
+        'num_Genres': num_Genre,
+        'num_Instruments': num_Instrument,
+    #     'num_equities': num_equities,
     }
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+
+
+from django.views import generic
+
+
+class instrumentListView(generic.ListView):
+    model = instrument
+
+
+class instrumentDetailView(generic.DetailView):
+    model = instrument
