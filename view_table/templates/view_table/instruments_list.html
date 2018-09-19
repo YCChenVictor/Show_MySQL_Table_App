@@ -1,16 +1,16 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Stocks List</h1>
-  {% if stock_list %}
+  <h1>Instruments List</h1>
+  {% if instrument_list %}
   <ul>
-    {% for stock in book_list %}
+    {% for instrument in instrument_list %}
       <li>
-        <a href="{{ Stocks.get_absolute_url }}">{{ S.title }}</a>
+        <a href="{{ instrument.get_absolute_url }}">{{ instrument }}</a>
       </li>
     {% endfor %}
   </ul>
   {% else %}
-    <p>There are no stocks in the Stocks.</p>
+    <p>There are no instruments in the Instruments.</p>
   {% endif %}       
 {% endblock %}
