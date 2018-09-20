@@ -6,7 +6,7 @@
   <ul>
     {% for instrument in instrument_list %}
       <li>
-        <a href="{{ Instrument.get_absolute_url }}">{{ instrument.name }}</a>
+        <a href="{{ instrument.get_absolute_url }}">{{ instrument.name }}</a>
       </li>
     {% endfor %}
   </ul>
