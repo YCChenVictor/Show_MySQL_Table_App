@@ -8,4 +8,5 @@ urlpatterns = [
          name='instruments'),
     path('instrument/<int:pk>', views.instrumentDetailView.as_view(),
          name='instrument-detail'),
+    path('show_table/', views.show_table, name='show_table'),
 ]
