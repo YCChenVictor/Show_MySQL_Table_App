@@ -51,4 +51,4 @@ class instrument(models.Model):
 
     def get_absolute_url(self):
         """Returns the url to access a detail record for this Instrument."""
-        return reverse('instrument-detail', args=[str(self.ticker)])
+        return reverse('instrument-detail', args=[str(self.id)])
