@@ -30,16 +30,11 @@ from django.views import generic
 class instrumentListView(generic.ListView):
     model = instrument
 
+    def show_table(request):
+        model = instrument
+
+        return model.object.all()
+
 
 class instrumentDetailView(generic.DetailView):
     model = instrument
-
-
-def show_table(request):
-    model = instrument
-
-    query_results = {'data': model.objects.all()}
-
-    # Render the HTML template show_table.html with the data in the context
-    # variable
-    return render(request, 'show_table.html', context=query_results)
