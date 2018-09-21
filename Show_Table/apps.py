@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class ViewTableConfig(AppConfig):
-    name = 'view_table'
+class ShowTableConfig(AppConfig):
+    name = 'Show_Table'
