@@ -16,11 +16,13 @@
 {% endblock %}
 
 {% block content_2 %}
-
-  {% for instrument in instrument_list %}
-
-    <h1> {{instrument.ticker}} </h1>
-
-  {% endfor %}
-
+  <table style="width:100%">
+    {% for instrument in instrument_list %}
+      <tr>
+        <th>{{instrument.ticker}}</th>
+        <th>{{instrument.name}}</th> 
+        <th>{{instrument.exchange}}</th>
+      </tr>
+    {% endfor %}
+  </table>
 {% endblock %}
