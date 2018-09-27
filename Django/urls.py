@@ -11,14 +11,14 @@ from django.conf.urls import include
 from django.urls import path
 
 urlpatterns += [
-    path('view_table/', include('view_table.urls')),
+    path('Show_Table/', include('Show_Table.urls')),
 ]
 
 
 # Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='/view_table/')),
+    path('', RedirectView.as_view(url='/Show_Table/')),
 ]
 
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from view_table.models import Genre, instrument
+from Show_Table.models import Genre, instrument
 
 
 def index(request):

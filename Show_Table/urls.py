@@ -1,5 +1,5 @@
 from django.urls import path
-from view_table import views
+from Show_Table import views
 
 
 urlpatterns = [

@@ -2,10 +2,20 @@
 
 {% block content_1 %}
   <h1>Instrument Home</h1>
-  <p>Welcome to Connectedness, a website developed by <em>Yong Jhe Chen</em>!</p>
-  <h2>Dynamic content</h2>
-  <p>The library has the following record counts:</p>
+  <h3>Welcome to Show_Table_App, a website developed by <em>Yong Jhe Chen</em>!</h3>
+  <h4>Record counts:</h4>
   <ul>
     <li><strong>Instruments:</strong> {{ num_Instruments }}</li>
   </ul>
+  <h1>Instruments:</h1>
+{% endblock %}
+
+{% block content_2 %}
+
+  {% for instrument in instrument_list %}
+
+    <h1> {{instrument.ticker}} </h1>
+
+  {% endfor %}
+  
 {% endblock %}
