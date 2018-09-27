@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content_1 %}
+  <h1>Instruments List</h1>
+  {% if instrument_list %}
+  <ul>
+    {% for instrument in instrument_list %}
+      <li>
+        <a href="{{ instrument.get_absolute_url }}">{{ instrument.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There is no instruments in the Instruments.</p>
+  {% endif %}       
+{% endblock %}
+
+{% block content_2 %}
+
+  {% for instrument in instrument_list %}
+
+    <h1> {{instrument.ticker}} </h1>
+
+  {% endfor %}
+
+{% endblock %}
